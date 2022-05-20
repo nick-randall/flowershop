@@ -1,4 +1,4 @@
-import 'package:flowershop/components/productItem/product_box.dart';
+import 'package:flowershop/components/productItem/product_item.dart';
 import 'package:flowershop/components/shopDetails/shop_details.dart';
 import 'package:flowershop/components/shopHeader/shop_header.dart';
 import 'package:flowershop/components/shopHeader/shop_name_row.dart';
@@ -9,6 +9,19 @@ import '../model/product.dart';
 import '../model/shop.dart';
 import 'filterRow/filter_row.dart';
 
+bool hasFilteredCategory(
+    {required List<Filter> filters, required Product product}) {
+  var has = false;
+  for (final category in product.categories) {
+    for (final filter in filters) {
+      if (category == filter.name && filter.isActive) has = true;
+    }
+  }
+  return has;
+}
+
+bool allFiltersOff(List<Filter> filters) => filters.every((e) => !e.isActive);
+
 class ShopPage extends ConsumerWidget {
   const ShopPage(this.shop, {Key? key}) : super(key: key);
 
@@ -16,6 +29,9 @@ class ShopPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    List<Filter> filters = ref.watch(filtersProvider);
+    print(filters.every((e) => !e.isActive));
+
     return Scaffold(
         body: Stack(
       children: [
@@ -31,12 +47,15 @@ class ShopPage extends ConsumerWidget {
                 child: Column(children: [
                   const FilterRow(),
                   for (final product in shop.products)
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 8),
-                      child: ProductBox(
-                        product: product,
-                      ),
-                    )
+                    if (hasFilteredCategory(
+                            filters: filters, product: product) ||
+                        allFiltersOff(filters))
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 8),
+                        child: ProductItem(
+                          product: product,
+                        ),
+                      )
                 ]),
               ),
             ],

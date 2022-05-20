@@ -8,8 +8,8 @@ import 'package:flutter/material.dart';
 import '../../constants/colors.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class ProductBox extends StatelessWidget {
-  const ProductBox({Key? key, required this.product}) : super(key: key);
+class ProductItem extends StatelessWidget {
+  const ProductItem({Key? key, required this.product}) : super(key: key);
   final Product product;
 
   @override
@@ -32,8 +32,6 @@ class ProductBox extends StatelessWidget {
                   color: backgroundColor,
                 ),
                 child: Image.asset("./images/${product.image}.png")),
-            // This Flexible allows Container to take up its whole size, which
-            // gives it an auto-width and causes the text to auto-wrap
             Container(
               padding: const EdgeInsets.only(
                   top: 14, bottom: 14, left: 12, right: 12),

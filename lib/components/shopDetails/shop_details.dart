@@ -25,8 +25,9 @@ class ShopDetails extends StatelessWidget {
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            const SizedBox(height: 6),
             Text(
-                'Opening Hours: ${shop.openingHours.friday.getOpeningHoursAsString(context)}',
+                'Opening hours: ${shop.openingHours.friday.getOpeningHoursAsString(context)}',
                 style: openingHoursStyle),
             const SizedBox(height: 4),
             Text(shop.address.toString(), style: shopAddressStyle),
@@ -35,10 +36,15 @@ class ShopDetails extends StatelessWidget {
                 decoration: const BoxDecoration(
                     color: Colors.grey,
                     borderRadius: BorderRadius.all(Radius.circular(8))),
-                padding: EdgeInsets.only(left: 8, right: 8, top: 2, bottom: 5),
+                padding:
+                    const EdgeInsets.only(left: 8, right: 8, top: 2, bottom: 5),
                 child: const Text('Supermarkt', style: shopAddressStyle)),
             const SizedBox(height: 27),
           ],
+        ),
+        // Background picture asset comes here
+        const SizedBox(
+          width: 150,
         )
       ]),
     );

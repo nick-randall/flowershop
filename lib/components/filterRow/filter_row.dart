@@ -14,6 +14,10 @@ class Filter {
   Filter({required this.name, this.isActive = false});
 }
 
+final filtersProvider = StateNotifierProvider<Filters, List<Filter>>((ref) {
+  return Filters();
+});
+
 class Filters extends StateNotifier<List<Filter>> {
   Filters()
       : super([
@@ -90,7 +94,3 @@ class FilterRow extends ConsumerWidget {
     );
   }
 }
-
-final filtersProvider = StateNotifierProvider<Filters, List<Filter>>((ref) {
-  return Filters();
-});
