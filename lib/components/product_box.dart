@@ -42,21 +42,20 @@ class ProductBox extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Flexible(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(product.subtitle, style: productSubtitleStyle),
-                        const SizedBox(height: 4),
-                        SizedBox(
-                            width: 155,
-                            child: Text(product.name, style: productNameStyle)),
-                        // const SizedBox(height: 33.2),
-                      ],
-                    ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(product.title, style: productTitleStyle),
+                      const SizedBox(height: 4),
+                      SizedBox(
+                          width: 155,
+                          child: Text(product.description,
+                              style: productDescriptionStyle)),
+                      const SizedBox(height: 8.67),
+                      FiveStarRating(product.rating),
+                    ],
                   ),
-                  Flexible(child: FiveStarRating(product.rating)),
-                  Flexible(child: PriceRow(product: product)),
+                  PriceRow(product: product),
                 ],
               ),
             ),

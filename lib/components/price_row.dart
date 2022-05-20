@@ -9,14 +9,14 @@ class PriceRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (product.salesPrice == null) {
+    if (product.reducedFromPrice == null) {
       return Text(product.priceAsText, style: normalPriceStyle);
     }
     return Row(
       children: [
         Text(product.priceAsText, style: salePriceStyle),
         const SizedBox(width: 4),
-        Text(product.salesPriceAsText, style: reducedFromPriceStyle)
+        Text(product.reducedFromPriceAsText, style: reducedFromPriceStyle)
       ],
     );
   }
