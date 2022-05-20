@@ -3,7 +3,6 @@ import 'package:flowershop/components/productItem/heart_button.dart';
 import 'package:flowershop/components/productItem/price_row.dart';
 import 'package:flowershop/constants/text_styles.dart';
 import 'package:flowershop/model/product.dart';
-import 'package:flowershop/model/shop.dart';
 import 'package:flutter/material.dart';
 import '../../constants/colors.dart';
 import 'package:flutter_svg/flutter_svg.dart';

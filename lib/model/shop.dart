@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flowershop/model/product.dart';
 import 'package:flutter/material.dart';
 
@@ -60,9 +58,8 @@ class DailyOpeningHours {
   DailyOpeningHours.closed() {
     isOpen = false;
   }
-  @override
+
   String getOpeningHoursAsString(BuildContext context) {
-    // TODO: implement toString
     return "${start!.format(context)}-${finish!.format(context)}";
   }
 }
