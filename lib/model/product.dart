@@ -60,7 +60,7 @@ class Product {
         title: "Hibiscus",
         price: 1.25,
         reducedFromPrice: 0.95,
-        categories: ["Popular"],
+        categories: ["Popular", "Hibiscus"],
         image: "flower_5",
         rating: 3.5)
   ];

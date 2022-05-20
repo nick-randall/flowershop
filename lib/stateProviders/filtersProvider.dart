@@ -1,5 +1,4 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../../model/product.dart';
 
 class Filter {
   final String name;

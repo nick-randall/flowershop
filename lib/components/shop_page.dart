@@ -8,20 +8,21 @@ import '../model/shop.dart';
 import '../stateProviders/filtersProvider.dart';
 import 'filterRow/filter_row.dart';
 
-bool hasFilteredCategory(
+bool productHasAFilteredCategory(
     {required List<Filter> filters, required Product product}) {
-  var hasFilteredCategory = false;
+  var productHasAFilteredCategory = false;
   for (final category in product.categories) {
     for (final filter in filters) {
       if (category == filter.name && filter.isActive) {
-        hasFilteredCategory = true;
+        productHasAFilteredCategory = true;
       }
     }
   }
-  return hasFilteredCategory;
+  return productHasAFilteredCategory;
 }
 
-bool allFiltersOff(List<Filter> filters) => filters.every((e) => !e.isActive);
+bool isEveryFilterInactive(List<Filter> filters) =>
+    filters.every((e) => !e.isActive);
 
 class ShopPage extends ConsumerWidget {
   const ShopPage(this.shop, {Key? key}) : super(key: key);
@@ -45,9 +46,9 @@ class ShopPage extends ConsumerWidget {
                 child: Column(children: [
                   const FilterRow(),
                   for (final product in shop.products)
-                    if (hasFilteredCategory(
+                    if (productHasAFilteredCategory(
                             filters: filters, product: product) ||
-                        allFiltersOff(filters))
+                        isEveryFilterInactive(filters))
                       Padding(
                         padding: const EdgeInsets.only(bottom: 8),
                         child: ProductItem(
