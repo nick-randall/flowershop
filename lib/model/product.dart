@@ -38,14 +38,14 @@ class Product {
         title: "Roses",
         price: 1.70,
         categories: ["Roses"],
-        image: "flower_4",
+        image: "flower_2",
         rating: 5.0),
     Product(
         description: "Bouquet of tulips",
         title: "Tulips",
         price: 3.70,
         categories: ["Bouquet", "Tulips"],
-        image: "flower_1",
+        image: "flower_3",
         rating: 3.5),
     Product(
         description: "Tulips in a pot",
@@ -53,7 +53,7 @@ class Product {
         price: 4.35,
         reducedFromPrice: 3.95,
         categories: ["Tulips", "Popular"],
-        image: "flower_1",
+        image: "flower_4",
         rating: 4.0),
     Product(
         description: "Individual hibiscus",
@@ -61,7 +61,7 @@ class Product {
         price: 1.25,
         reducedFromPrice: 0.95,
         categories: ["Popular"],
-        image: "flower_1",
+        image: "flower_5",
         rating: 3.5)
   ];
 }

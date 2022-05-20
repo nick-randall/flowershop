@@ -1,11 +1,13 @@
+import 'package:flowershop/components/filter_row.dart';
 import 'package:flowershop/components/star_rating_bar.dart';
 import 'package:flowershop/components/heart_button.dart';
 import 'package:flowershop/components/product_box.dart';
 import 'package:flowershop/model/product.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(const ProviderScope(child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -60,24 +62,21 @@ class _MyHomePageState extends State<MyHomePage> {
           // the App.build method, and use it to set our appbar title.
           title: Text(widget.title),
         ),
-        body: Center(
-          // Center is a layout widget. It takes a single child and positions it
-          // in the middle of the parent.
-          child: SingleChildScrollView(
-            child: Column(
-                children: Product.sampleProducts
-                    .map((e) => Padding(
-                          padding: const EdgeInsets.only(bottom: 8),
-                          child: ProductBox(
-                            product: e,
-                          ),
-                        ))
-                    .toList()
+        body: Column(children: [
+          const FilterRow(),
+          Column(
+              children: Product.sampleProducts
+                  .map((e) => Padding(
+                        padding: const EdgeInsets.only(bottom: 8),
+                        child: ProductBox(
+                          product: e,
+                        ),
+                      ))
+                  .toList()
 
-                // const SizedBox(height: 8),
+              // const SizedBox(height: 8),
 
-                ),
-          ),
-        ));
+              ),
+        ]));
   }
 }
