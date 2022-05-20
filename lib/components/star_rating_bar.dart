@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class FiveStarRating extends StatelessWidget {
+class StarRatingBar extends StatelessWidget {
   final double rating;
   final List<Star> stars;
 
-  FiveStarRating(this.rating, {Key? key})
+  StarRatingBar(this.rating, {Key? key})
       : stars = List.generate(5, (index) {
           var isLastIndex = index == 4;
           if (rating >= index + 1) {

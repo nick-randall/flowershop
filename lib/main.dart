@@ -1,4 +1,4 @@
-import 'package:flowershop/components/five_star_rating.dart';
+import 'package:flowershop/components/star_rating_bar.dart';
 import 'package:flowershop/components/heart_button.dart';
 import 'package:flowershop/components/product_box.dart';
 import 'package:flowershop/model/product.dart';

@@ -1,4 +1,4 @@
-import 'package:flowershop/components/five_star_rating.dart';
+import 'package:flowershop/components/star_rating_bar.dart';
 import 'package:flowershop/components/heart_button.dart';
 import 'package:flowershop/components/price_row.dart';
 import 'package:flowershop/constants/text_styles.dart';
@@ -52,7 +52,7 @@ class ProductBox extends StatelessWidget {
                           child: Text(product.description,
                               style: productDescriptionStyle)),
                       const SizedBox(height: 8.67),
-                      FiveStarRating(product.rating),
+                      StarRatingBar(product.rating),
                     ],
                   ),
                   PriceRow(product: product),
