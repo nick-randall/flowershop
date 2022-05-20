@@ -3,41 +3,8 @@ import 'package:flowershop/constants/colors.dart';
 import 'package:flowershop/constants/text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../../model/product.dart';
 
-// typedef Filter = bool Function(Product p);
-
-class Filter {
-  final String name;
-  bool isActive;
-
-  Filter({required this.name, this.isActive = false});
-}
-
-final filtersProvider = StateNotifierProvider<Filters, List<Filter>>((ref) {
-  return Filters();
-});
-
-class Filters extends StateNotifier<List<Filter>> {
-  Filters()
-      : super([
-          Filter(name: "Tulips"),
-          Filter(name: "Popular"),
-          Filter(name: "Bouquets"),
-          Filter(name: "Roses"),
-          Filter(name: "Hibiscus")
-        ]);
-
-  void toggle(Filter filterToToggle) {
-    state = [
-      for (final filter in state)
-        if (filterToToggle.name == filter.name)
-          Filter(name: filterToToggle.name, isActive: !filterToToggle.isActive)
-        else
-          filter
-    ];
-  }
-}
+import '../../stateProviders/filtersProvider.dart';
 
 class FilterRow extends ConsumerWidget {
   const FilterRow({Key? key}) : super(key: key);
@@ -48,7 +15,7 @@ class FilterRow extends ConsumerWidget {
     return Column(
       children: [
         Container(
-          margin: const EdgeInsets.only(left: 16),
+          margin: const EdgeInsets.only(left: 16, top: 46),
           child: const Align(
               alignment: Alignment.centerLeft,
               child: Text('Categories', style: categoriesTitleStyle)),
@@ -57,7 +24,7 @@ class FilterRow extends ConsumerWidget {
         Row(children: [
           const SizedBox(width: 19),
           const HamburgerMenu(),
-          // 23 as appears in design minus the 4 margin of the buttons
+          // 23 as appears in Figma design minus the 4 margin of the buttons
           const SizedBox(width: 19),
           Expanded(
             child: SingleChildScrollView(

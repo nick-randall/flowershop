@@ -1,23 +1,24 @@
 import 'package:flowershop/components/productItem/product_item.dart';
-import 'package:flowershop/components/shopDetails/shop_details.dart';
+import 'package:flowershop/components/shopDetailsSection/shop_details_section.dart';
 import 'package:flowershop/components/shopHeader/shop_header.dart';
-import 'package:flowershop/components/shopHeader/shop_name_row.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
 import '../model/product.dart';
 import '../model/shop.dart';
+import '../stateProviders/filtersProvider.dart';
 import 'filterRow/filter_row.dart';
 
 bool hasFilteredCategory(
     {required List<Filter> filters, required Product product}) {
-  var has = false;
+  var hasFilteredCategory = false;
   for (final category in product.categories) {
     for (final filter in filters) {
-      if (category == filter.name && filter.isActive) has = true;
+      if (category == filter.name && filter.isActive) {
+        hasFilteredCategory = true;
+      }
     }
   }
-  return has;
+  return hasFilteredCategory;
 }
 
 bool allFiltersOff(List<Filter> filters) => filters.every((e) => !e.isActive);
@@ -30,15 +31,12 @@ class ShopPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     List<Filter> filters = ref.watch(filtersProvider);
-    print(filters.every((e) => !e.isActive));
 
     return Scaffold(
         body: Stack(
       children: [
         Positioned(top: 88, child: ShopDetails(shop: shop)),
         SingleChildScrollView(
-          controller: ScrollController(
-              initialScrollOffset: 88.0, keepScrollOffset: true),
           child: Column(
             children: [
               const SizedBox(height: 200),

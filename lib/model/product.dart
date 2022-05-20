@@ -30,7 +30,7 @@ class Product {
         description: "Bouquet of roses and hibiscus",
         title: "Bouquet",
         price: 2.90,
-        categories: ["Bouquet", "Popular"],
+        categories: ["Bouquets", "Popular"],
         image: "flower_1",
         rating: 4.5),
     Product(
@@ -44,7 +44,7 @@ class Product {
         description: "Bouquet of tulips",
         title: "Tulips",
         price: 3.70,
-        categories: ["Bouquet", "Tulips"],
+        categories: ["Bouquets", "Tulips"],
         image: "flower_3",
         rating: 3.5),
     Product(

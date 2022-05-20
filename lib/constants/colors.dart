@@ -7,3 +7,4 @@ const Color activeFilterTextColor = Colors.white;
 const Color mainTextColor = Color(0xFF2B2D3A);
 const Color inactiveFilterTextColor = mainTextColor;
 const Color shopHeaderBackgroundColor = Color(0xFFC4C4C4);
+const Color detailsBoxBackgroundColor = Color(0xFFEDEDED);
