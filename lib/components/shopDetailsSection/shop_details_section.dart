@@ -26,7 +26,7 @@ class ShopDetails extends StatelessWidget {
             ),
             const SizedBox(width: 16),
             Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const SizedBox(height: 6),
                 Text(
