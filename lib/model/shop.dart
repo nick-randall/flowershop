@@ -24,7 +24,7 @@ class Shop {
             const TimeOfDay(hour: 8, minute: 30),
             const TimeOfDay(hour: 20, minute: 0),
           )),
-      name: "A flower shop",
+      name: "Flowery Shop",
       address: Address(street: "Bundesstr.", houseNumber: 45),
       products: Product.sampleProducts);
 }
@@ -59,6 +59,11 @@ class DailyOpeningHours {
 
   DailyOpeningHours.closed() {
     isOpen = false;
+  }
+  @override
+  String getOpeningHoursAsString(BuildContext context) {
+    // TODO: implement toString
+    return "${start!.format(context)}-${finish!.format(context)}";
   }
 }
 

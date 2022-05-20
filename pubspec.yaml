@@ -51,6 +51,10 @@ flutter:
     - images/heart_empty.svg
     - images/heart_full.svg
     - images/shopping_cart.svg
+    - images/back_button.svg
+    - images/magnifying_glass.svg
+    - images/other_heart.png
+    - images/shop_logo.png
 
 
 
