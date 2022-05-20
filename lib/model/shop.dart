@@ -16,28 +16,17 @@ class Shop {
       required this.address,
       required this.products});
 
-  static List<Shop> generateSampleShopData() {
-    List<Shop> sampleShopData = [];
-    for (int i = 0; i < 10; i++) {
-      var dice = Random(1);
-      var address = Address(street: "street", houseNumber: dice.nextInt(100));
-      var products =
-          List.generate(3, (index) => Product.sampleProducts[dice.nextInt(4)]);
-      var name = "Name Flower-Shop";
-      var openingHours = OpeningHours.standard(
+  static Shop sampleShop = Shop(
+      openingHours: OpeningHours.standard(
           weekdayHours: DailyOpeningHours(const TimeOfDay(hour: 8, minute: 30),
               const TimeOfDay(hour: 20, minute: 0)),
-          saturdayHours: DailyOpeningHours(const TimeOfDay(hour: 8, minute: 30),
-              const TimeOfDay(hour: 20, minute: 0)));
-      var newShop = Shop(
-          address: address,
-          name: name,
-          products: products,
-          openingHours: openingHours);
-      sampleShopData.add(newShop);
-    }
-    return sampleShopData;
-  }
+          saturdayHours: DailyOpeningHours(
+            const TimeOfDay(hour: 8, minute: 30),
+            const TimeOfDay(hour: 20, minute: 0),
+          )),
+      name: "A flower shop",
+      address: Address(street: "Bundesstr.", houseNumber: 45),
+      products: Product.sampleProducts);
 }
 
 class OpeningHours {

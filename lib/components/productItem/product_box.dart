@@ -1,11 +1,11 @@
-import 'package:flowershop/components/star_rating_bar.dart';
-import 'package:flowershop/components/heart_button.dart';
-import 'package:flowershop/components/price_row.dart';
+import 'package:flowershop/components/productItem/star_rating_bar.dart';
+import 'package:flowershop/components/productItem/heart_button.dart';
+import 'package:flowershop/components/productItem/price_row.dart';
 import 'package:flowershop/constants/text_styles.dart';
 import 'package:flowershop/model/product.dart';
 import 'package:flowershop/model/shop.dart';
 import 'package:flutter/material.dart';
-import '../constants/colors.dart';
+import '../../constants/colors.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 class ProductBox extends StatelessWidget {
@@ -14,7 +14,6 @@ class ProductBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Shop.generateSampleShopData();
     return Container(
       margin: const EdgeInsets.only(left: 16.0, right: 16.0),
       decoration: BoxDecoration(

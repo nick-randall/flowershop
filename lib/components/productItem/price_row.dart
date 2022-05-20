@@ -1,6 +1,6 @@
 import 'package:flowershop/constants/text_styles.dart';
 import 'package:flutter/material.dart';
-import '../model/product.dart';
+import '../../model/product.dart';
 
 class PriceRow extends StatelessWidget {
   final Product product;
